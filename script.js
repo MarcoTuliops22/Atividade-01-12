@@ -115,8 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
             addTask();
         }
     });
-
+  
     renderTasks();
 });
+
 
 
