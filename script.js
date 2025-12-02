@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     let currentFilter = 'all';
 
-    // --- Gerenciamento de Tarefas e Renderização ---
 
     function saveTasks() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -41,8 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         pendingTasksCounter.textContent = `${pendingCount} tarefa${pendingCount === 1 ? '' : 's'} pendente${pendingCount === 1 ? '' : 's'}`;
     }
 
-    // --- Funcionalidades CRUD ---
-
     function addTask() {
         const text = taskInput.value.trim();
         if (text === '') return;
@@ -60,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         taskInput.focus();
     }
 
-    // Exportadas para uso nos atributos onclick do HTML
     window.toggleComplete = function(id) {
         const task = tasks.find(t => t.id === id);
         if (task) {
@@ -91,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tasks = tasks.filter(t => t.id !== id);
                 saveTasks();
                 renderTasks();
-            }, 500); // Espera a animacao CSS terminar (0.5s)
+            }, 500); 
         }
     };
 
@@ -101,11 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks();
     };
 
-    // --- Filtros ---
+
 
     window.filterTasks = function(filterType) {
         currentFilter = filterType;
-        // Atualiza a classe 'active' nos botões de filtro
+
         document.querySelectorAll('.filters button').forEach(button => {
             button.classList.remove('active');
         });
@@ -113,17 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks();
     };
 
-    // --- Event Listeners ---
-
     addTaskBtn.addEventListener('click', addTask);
 
-    // Permite adicionar tarefa pressionando Enter
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             addTask();
         }
     });
 
-    // Renderiza as tarefas iniciais ao carregar a página
     renderTasks();
 });
+
