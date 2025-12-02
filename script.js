@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pendingCount++;
             }
 
-            // Lógica de Filtro
+            
             if (currentFilter === 'pending' && task.completed) return;
             if (currentFilter === 'completed' && !task.completed) return;
 
@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.deleteTask = function(id) {
         const itemElement = document.querySelector(`[data-id="${id}"]`);
         if (itemElement) {
-            // Adiciona classe para animacao antes de remover
             itemElement.classList.add('remove');
             setTimeout(() => {
                 tasks = tasks.filter(t => t.id !== id);
@@ -119,4 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderTasks();
 });
+
 
