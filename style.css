@@ -1,4 +1,4 @@
-* {
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -182,4 +182,5 @@ footer {
 #clear-completed-btn:hover {
     background-color: #a71d2a;
 }
+
 
