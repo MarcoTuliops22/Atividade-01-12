@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas Interativa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Minhas Tarefas</h1>
+            <div class="input-area">
+                <input type="text" id="new-task-input" placeholder="O que precisa ser feito hoje?">
+                <button id="add-task-btn">Adicionar</button>
+            </div>
+        </header>
+
+        <section class="filters">
+            <button id="filter-all" class="active" onclick="filterTasks('all')">Todas</button>
+            <button id="filter-pending" onclick="filterTasks('pending')">Pendentes</button>
+            <button id="filter-completed" onclick="filterTasks('completed')">Concluídas</button>
+        </section>
+
+        <main>
+            <!-- A lista de tarefas será renderizada aqui via JavaScript -->
+            <ul id="task-list">
+                <!-- Exemplo de item (comentado) -->
+                
+                <li class="todo-item pending" data-id="1">
+                    <input type="checkbox" onchange="toggleComplete(1)">
+                    <span>Texto da Tarefa</span>
+                    <button class="edit-btn" onclick="editTask(1)">Editar</button>
+                    <button class="delete-btn" onclick="deleteTask(1)">Excluir</button>
+                </li>
+                
+            </ul>
+        </main>
+
+        <footer>
+            <span id="pending-tasks-counter">0 tarefas pendentes</span>
+            <button id="clear-completed-btn" onclick="clearCompletedTasks()">Limpar Concluídas</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
